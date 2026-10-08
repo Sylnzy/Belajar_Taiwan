@@ -4,10 +4,11 @@ import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { VocabWord, LevelSummary } from "../types/vocab";
 import { filterWords } from "../lib/searchFilter";
+import { LEVEL_LANDMARKS } from "../lib/taiwanLandmarks";
 import { WordCard } from "./WordCard";
 import { WordDetailModal } from "./WordDetailModal";
 import { db } from "../lib/db";
-import { Search, Filter, ArrowLeft, ChevronLeft, ChevronRight, BookOpen } from "lucide-react";
+import { Search, Filter, ArrowLeft, ChevronLeft, ChevronRight, BookOpen, MapPin } from "lucide-react";
 
 interface WordExplorerProps {
   levelInfo: LevelSummary;
@@ -98,45 +99,71 @@ export function WordExplorer({ levelInfo, initialWords }: WordExplorerProps) {
     return filteredWords.slice(start, start + PAGE_SIZE);
   }, [filteredWords, currentPage]);
 
+  const landmark = LEVEL_LANDMARKS[levelInfo.level] || {
+    image: "/images/taipei-101.jpg",
+    name: "Taiwan",
+    zh: "臺灣",
+    desc: "Pulau Formosa",
+    location: "Taiwan",
+  };
+
   return (
     <div className="space-y-6">
-      {/* Top navigation & level header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-500 hover:text-emerald-600 transition mb-2"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            Kembali ke Dashboard
-          </Link>
-          <div className="flex items-center gap-2.5">
-            <h1 className="text-2xl font-bold font-cjk text-zinc-900 dark:text-zinc-100">
-              {levelInfo.titleZh} ({levelInfo.level})
-            </h1>
-            <span className="text-xs px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 font-mono font-semibold">
-              {levelInfo.wordCount} Kata
-            </span>
-          </div>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-            Kamus Kosakata Resmi TOCFL {levelInfo.band} · {levelInfo.cefr}
-          </p>
+      {/* Top navigation & level header with landmark banner */}
+      <div className="relative rounded-3xl overflow-hidden border border-zinc-200/90 dark:border-zinc-800 bg-zinc-900 shadow-sm">
+        {/* Banner image */}
+        <div className="absolute inset-0">
+          <img
+            src={landmark.image}
+            alt={landmark.name}
+            className="w-full h-full object-cover brightness-[0.4] dark:brightness-[0.3]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
         </div>
 
-        {/* Quick action buttons */}
-        <div className="flex items-center gap-2">
-          <Link
-            href={`/level/${levelInfo.level.toLowerCase()}/flashcards`}
-            className="px-3.5 py-2 text-xs font-medium rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500/50 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/30 text-zinc-700 dark:text-zinc-300 transition"
-          >
-            Flashcard SRS
-          </Link>
-          <Link
-            href={`/level/${levelInfo.level.toLowerCase()}/quiz`}
-            className="px-3.5 py-2 text-xs font-medium rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white transition active:scale-95 shadow-sm"
-          >
-            Kuis Level Ini
-          </Link>
+        {/* Content over banner */}
+        <div className="relative p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-white">
+          <div>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-white/70 hover:text-emerald-400 transition mb-3"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              Kembali ke Dashboard
+            </Link>
+            <div className="flex items-center gap-3">
+              <h1 className="text-2xl sm:text-3xl font-bold font-cjk text-white drop-shadow-sm">
+                {levelInfo.titleZh} ({levelInfo.level})
+              </h1>
+              <span className="text-xs px-2.5 py-1 rounded-md bg-emerald-600 text-white font-mono font-semibold shadow-sm">
+                {levelInfo.wordCount} Kata
+              </span>
+            </div>
+            <p className="text-xs text-white/80 mt-1 font-sans flex items-center gap-2">
+              <span>Kamus Resmi TOCFL {levelInfo.band} · {levelInfo.cefr}</span>
+              <span>•</span>
+              <span className="flex items-center gap-1 text-emerald-400 font-medium">
+                <MapPin className="w-3 h-3" />
+                {landmark.name} ({landmark.zh})
+              </span>
+            </p>
+          </div>
+
+          {/* Quick action buttons on banner */}
+          <div className="flex items-center gap-2.5 shrink-0">
+            <Link
+              href={`/level/${levelInfo.level.toLowerCase()}/flashcards`}
+              className="px-4 py-2.5 text-xs font-medium rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 transition active:scale-95"
+            >
+              Flashcard SRS
+            </Link>
+            <Link
+              href={`/level/${levelInfo.level.toLowerCase()}/quiz`}
+              className="px-4 py-2.5 text-xs font-semibold rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white transition active:scale-95 shadow-sm"
+            >
+              Kuis Level Ini
+            </Link>
+          </div>
         </div>
       </div>
 

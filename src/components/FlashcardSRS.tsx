@@ -6,8 +6,9 @@ import { VocabWord, LevelSummary, WordProgress } from "../types/vocab";
 import { FlipCard } from "./FlipCard";
 import { calculateNextReview, ReviewGrade } from "../lib/srs";
 import { buildReviewQueue } from "../lib/flashcardQueue";
+import { LEVEL_LANDMARKS } from "../lib/taiwanLandmarks";
 import { db } from "../lib/db";
-import { ArrowLeft, RotateCcw, CheckCircle2, Sparkles, Layers } from "lucide-react";
+import { ArrowLeft, RotateCcw, CheckCircle2, Sparkles, Layers, MapPin } from "lucide-react";
 
 interface FlashcardSRSProps {
   levelInfo: LevelSummary;
@@ -163,6 +164,14 @@ export function FlashcardSRS({ levelInfo, words }: FlashcardSRSProps) {
     );
   }
 
+  const landmark = LEVEL_LANDMARKS[levelInfo.level] || {
+    image: "/images/taipei-101.jpg",
+    name: "Taiwan",
+    zh: "臺灣",
+    desc: "Pulau Formosa",
+    location: "Taiwan",
+  };
+
   return (
     <div className="max-w-xl mx-auto space-y-6">
       {/* Top Header */}
@@ -175,11 +184,17 @@ export function FlashcardSRS({ levelInfo, words }: FlashcardSRSProps) {
           Keluar Sesi
         </Link>
 
-        <div className="flex items-center gap-2 text-xs font-mono text-zinc-500">
-          <Layers className="w-3.5 h-3.5 text-emerald-600" />
-          <span>
-            Kartu {currentIndex + 1} / {queue.length}
+        <div className="flex items-center gap-3 text-xs font-mono">
+          <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-zinc-400">
+            <MapPin className="w-3 h-3 text-emerald-500" />
+            {landmark.name}
           </span>
+          <div className="flex items-center gap-1.5 text-zinc-600 dark:text-zinc-300">
+            <Layers className="w-3.5 h-3.5 text-emerald-600" />
+            <span>
+              Kartu {currentIndex + 1} / {queue.length}
+            </span>
+          </div>
         </div>
       </div>
 
