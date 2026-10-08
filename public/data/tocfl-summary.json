@@ -1,0 +1,62 @@
+[
+  {
+    "level": "L0",
+    "band": "Novice",
+    "titleZh": "準備級",
+    "titleEn": "Novice",
+    "cefr": "Pre-A1",
+    "studyHoursAbroad": "60 - 240",
+    "wordCount": 394,
+    "cumulativeCount": 394
+  },
+  {
+    "level": "L1",
+    "band": "Band A",
+    "titleZh": "入門級",
+    "titleEn": "Level 1",
+    "cefr": "A1",
+    "studyHoursAbroad": "240 - 480",
+    "wordCount": 347,
+    "cumulativeCount": 741
+  },
+  {
+    "level": "L2",
+    "band": "Band A",
+    "titleZh": "基礎級",
+    "titleEn": "Level 2",
+    "cefr": "A2",
+    "studyHoursAbroad": "480 - 720",
+    "wordCount": 485,
+    "cumulativeCount": 1226
+  },
+  {
+    "level": "L3",
+    "band": "Band B",
+    "titleZh": "進階級",
+    "titleEn": "Level 3",
+    "cefr": "B1",
+    "studyHoursAbroad": "720 - 960",
+    "wordCount": 1173,
+    "cumulativeCount": 2399
+  },
+  {
+    "level": "L4",
+    "band": "Band B",
+    "titleZh": "高階級",
+    "titleEn": "Level 4",
+    "cefr": "B2",
+    "studyHoursAbroad": "960 - 1,920",
+    "wordCount": 2342,
+    "cumulativeCount": 4741
+  },
+  {
+    "level": "L5",
+    "band": "Band C",
+    "titleZh": "流利級",
+    "titleEn": "Level 5",
+    "cefr": "C1",
+    "studyHoursAbroad": "1,920 - 3,840",
+    "wordCount": 2776,
+    "cumulativeCount": 7517
+  }
+]
