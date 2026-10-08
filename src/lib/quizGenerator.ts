@@ -26,7 +26,7 @@ export function generateQuiz(
   return selectedTargets.map((target, idx) => {
     // Pick question type
     // If target has audio, allow audio-to-hanzi, otherwise only hanzi/meaning
-    const availableTypes = target.audio
+    const availableTypes: QuizQuestion["type"][] = target.audio
       ? questionTypes
       : ["hanzi-to-meaning", "meaning-to-hanzi"];
     const type = availableTypes[idx % availableTypes.length];
