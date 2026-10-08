@@ -33,7 +33,7 @@ export function FlipCard({ word, isFlipped, onFlip }: FlipCardProps) {
         }`}
       >
         {/* FRONT SIDE */}
-        <div className="absolute inset-0 w-full h-full rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 flex flex-col justify-between items-center text-center [backface-visibility:hidden]">
+        <div className="absolute inset-0 w-full h-full rounded-3xl glass-panel p-6 sm:p-8 flex flex-col justify-between items-center text-center [backface-visibility:hidden] shadow-xl">
           <div className="w-full flex items-center justify-between text-xs text-zinc-400 font-mono">
             <span className="px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-semibold border border-emerald-200/50 dark:border-emerald-800/40">
               {word.level}
@@ -62,7 +62,7 @@ export function FlipCard({ word, isFlipped, onFlip }: FlipCardProps) {
         </div>
 
         {/* BACK SIDE */}
-        <div className="absolute inset-0 w-full h-full rounded-3xl border border-emerald-500/40 dark:border-emerald-600/40 bg-zinc-50 dark:bg-zinc-900 p-5 sm:p-7 flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden]">
+        <div className="absolute inset-0 w-full h-full rounded-3xl glass-panel p-5 sm:p-7 flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden] shadow-xl">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-500 border-b border-zinc-200/60 dark:border-zinc-800 pb-3 shrink-0">
             <div className="flex items-center gap-2 min-w-0">
               <span className="text-xl font-bold font-cjk text-zinc-900 dark:text-zinc-100 truncate">

@@ -32,7 +32,7 @@ export function WordDetailModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="w-full max-w-lg max-h-[90vh] flex flex-col rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 shadow-2xl transition-all">
+      <div className="w-full max-w-lg max-h-[90vh] flex flex-col rounded-3xl glass-panel p-6 shadow-2xl transition-all">
         {/* Top header */}
         <div className="flex items-start justify-between shrink-0">
           <div className="flex items-center gap-2 font-mono text-xs text-zinc-500">

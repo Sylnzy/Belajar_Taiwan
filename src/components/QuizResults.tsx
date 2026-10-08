@@ -34,7 +34,7 @@ export function QuizResults({
 
   return (
     <div className="max-w-xl mx-auto space-y-6">
-      <div className="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8 text-center shadow-md">
+      <div className="rounded-3xl glass-panel p-8 text-center shadow-md">
         <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${badgeColor} mb-3`}>
           {verdict}
         </span>

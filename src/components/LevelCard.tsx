@@ -32,7 +32,7 @@ export function LevelCard({ level }: LevelCardProps) {
   }, [level.level, level.wordCount]);
 
   return (
-    <div className="group relative rounded-3xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden flex flex-col justify-between hover:border-emerald-500/60 dark:hover:border-emerald-500/50 transition-all duration-300 shadow-sm hover:shadow-lg">
+    <div className="group relative rounded-3xl glass-panel overflow-hidden flex flex-col justify-between hover:border-emerald-500/60 dark:hover:border-emerald-500/50 transition-all duration-300 shadow-sm hover:shadow-xl">
       {/* Photo Banner with Landmark info */}
       <div className="relative h-40 w-full overflow-hidden bg-zinc-900">
         <img

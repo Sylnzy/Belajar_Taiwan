@@ -16,7 +16,7 @@ export function Dashboard({ levels }: DashboardProps) {
   return (
     <div className="space-y-10">
       {/* Asymmetric Split Hero Section with Real Taiwan Photography */}
-      <div className="relative rounded-3xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 lg:p-10 shadow-sm overflow-hidden">
+      <div className="relative rounded-3xl glass-panel p-6 sm:p-8 lg:p-10 shadow-sm overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Column: Text & Value Prop */}
           <div className="lg:col-span-7 space-y-5">

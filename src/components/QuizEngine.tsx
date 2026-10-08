@@ -84,7 +84,7 @@ export function QuizEngine({ levelInfo, words }: QuizEngineProps) {
 
   if (!hasStarted) {
     return (
-      <div className="max-w-md mx-auto py-12 px-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-center shadow-md">
+      <div className="max-w-md mx-auto py-12 px-6 rounded-3xl glass-panel text-center shadow-md">
         <div className="w-16 h-16 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-4">
           <Award className="w-8 h-8" />
         </div>
@@ -161,7 +161,7 @@ export function QuizEngine({ levelInfo, words }: QuizEngineProps) {
       </div>
 
       {/* Question Card */}
-      <div className="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 shadow-sm text-center">
+      <div className="rounded-3xl glass-panel p-6 sm:p-8 shadow-md text-center">
         <span className="inline-block text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 mb-3">
           {currentQ.type === "hanzi-to-meaning" && "Tebak Arti Karakter"}
           {currentQ.type === "meaning-to-hanzi" && "Tebak Karakter Hanzi"}

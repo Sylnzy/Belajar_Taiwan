@@ -14,15 +14,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" suppressHydrationWarning>
-      <body className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased flex flex-col font-sans relative selection:bg-emerald-600 selection:text-white">
-        {/* Atmospheric Taiwan Heritage Background Canvas */}
+      <body className="min-h-screen text-zinc-900 dark:text-zinc-100 antialiased flex flex-col font-sans relative selection:bg-emerald-600 selection:text-white">
+        {/* Authentic Taiwan Scenic Background Atmosphere */}
         <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
           <img
-            src="/images/taroko-gorge.jpg"
-            alt=""
-            className="w-full h-full object-cover opacity-[0.03] dark:opacity-[0.05] filter blur-2xl scale-110"
+            src="/images/taipei-101.jpg"
+            alt="Taiwan Scenic Landscape"
+            className="w-full h-full object-cover opacity-15 dark:opacity-20 brightness-105 dark:brightness-75 scale-105 transition-all duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-50/80 to-zinc-50 dark:via-zinc-950/80 dark:to-zinc-950" />
+          {/* Subtle gradient veil for pristine contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-zinc-50/85 via-zinc-50/75 to-zinc-50/90 dark:from-zinc-950/90 dark:via-zinc-950/80 dark:to-zinc-950/95 backdrop-blur-[3px]" />
         </div>
 
         <Header />

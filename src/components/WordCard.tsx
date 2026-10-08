@@ -13,7 +13,7 @@ export function WordCard({ word, isMastered = false, onSelect }: WordCardProps) 
   return (
     <div
       onClick={() => onSelect(word)}
-      className="group relative rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 hover:border-emerald-500/60 dark:hover:border-emerald-500/50 hover:shadow-sm transition cursor-pointer flex items-center justify-between gap-3"
+      className="group relative rounded-2xl glass-panel p-4 hover:border-emerald-500/60 dark:hover:border-emerald-500/50 hover:shadow-md transition cursor-pointer flex items-center justify-between gap-3"
     >
       <div className="flex items-center gap-3.5 min-w-0">
         <AudioPlayerButton audioFile={word.audio} size="sm" />
