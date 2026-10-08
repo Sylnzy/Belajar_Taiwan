@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #fcfcfc;
+  --background: #fbfbfb;
   --foreground: #09090b;
 }
 
@@ -12,9 +12,39 @@
   --foreground: #fafafa;
 }
 
+::selection {
+  background-color: #059669;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #059669;
+  color: #ffffff;
+}
+
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   min-height: 100dvh;
+  caret-color: #059669;
+}
+
+/* Custom scrollbars themed to palette */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(5, 150, 105, 0.7);
 }

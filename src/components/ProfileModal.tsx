@@ -12,7 +12,16 @@ interface ProfileModalProps {
   onUpdate: (partial: Partial<UserProfile>) => void;
 }
 
-const AVATAR_OPTIONS = ["🇹🇼", "🎓", "🐉", "🌸", "🏔️", "🍵", "🏮", "🎯"];
+const AVATAR_OPTIONS = [
+  { label: "臺", desc: "Taiwan" },
+  { label: "學", desc: "Belajar" },
+  { label: "書", desc: "Buku" },
+  { label: "華", desc: "Mandarin" },
+  { label: "福", desc: "Berkah" },
+  { label: "春", desc: "Musim Semi" },
+  { label: "龍", desc: "Naga" },
+  { label: "志", desc: "Cita-cita" },
+];
 
 export function ProfileModal({ isOpen, onClose, profile, onUpdate }: ProfileModalProps) {
   const [name, setName] = useState(profile.name);
@@ -88,16 +97,17 @@ export function ProfileModal({ isOpen, onClose, profile, onUpdate }: ProfileModa
             <div className="flex flex-wrap gap-2">
               {AVATAR_OPTIONS.map((item) => (
                 <button
-                  key={item}
+                  key={item.label}
                   type="button"
-                  onClick={() => setAvatar(item)}
-                  className={`w-10 h-10 text-xl rounded-xl border flex items-center justify-center transition ${
-                    avatar === item
-                      ? "border-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 ring-2 ring-emerald-600/30"
-                      : "border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-800"
+                  onClick={() => setAvatar(item.label)}
+                  title={item.desc}
+                  className={`w-10 h-10 text-base font-bold font-cjk rounded-xl border flex items-center justify-center transition ${
+                    avatar === item.label
+                      ? "border-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 ring-2 ring-emerald-600/30"
+                      : "border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800"
                   }`}
                 >
-                  {item}
+                  {item.label}
                 </button>
               ))}
             </div>

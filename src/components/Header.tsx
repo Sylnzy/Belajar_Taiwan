@@ -53,9 +53,9 @@ export function Header({ currentLevel }: HeaderProps) {
               onClick={() => setIsModalOpen(true)}
               className="flex items-center gap-2 pl-2 pr-3 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition active:scale-95"
             >
-              <span className="text-base leading-none">
-                {mounted ? profile.avatarSeed : "🇹🇼"}
-              </span>
+              <div className="w-5 h-5 rounded-md bg-emerald-600/10 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold text-xs flex items-center justify-center font-cjk">
+                {mounted ? profile.avatarSeed : "臺"}
+              </div>
               <span className="text-xs font-medium text-zinc-800 dark:text-zinc-200 max-w-[100px] truncate">
                 {mounted ? profile.name : "Pelajar"}
               </span>

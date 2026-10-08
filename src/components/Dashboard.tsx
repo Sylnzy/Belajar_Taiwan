@@ -19,18 +19,13 @@ export function Dashboard({ levels }: DashboardProps) {
       <div className="relative rounded-3xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 lg:p-10 shadow-sm overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Column: Text & Value Prop */}
-          <div className="lg:col-span-7 space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200/50 dark:border-emerald-800/40">
-              <Sparkles className="w-3.5 h-3.5" />
-              Kurikulum Resmi SC-TOP Taiwan 2023
-            </div>
-
+          <div className="lg:col-span-7 space-y-5">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 font-cjk leading-tight">
               Kuasai 7.517 Kosakata Mandarin Taiwan
             </h1>
 
             <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
-              Pelajari aksara Hanzi Tradisional (繁體中文), lafal pinyin autentik, dan rekaman audio asli per kata sesuai standar resmi TOCFL untuk persiapan studi atau bekerja di Taiwan.
+              Kurikulum resmi SC-TOP Taiwan 2023. Pelajari aksara Hanzi Tradisional (繁體中文), lafal pinyin autentik, dan 7.133 rekaman audio asli untuk persiapan studi atau bekerja di Taiwan.
             </p>
 
             {/* Quick Actions */}

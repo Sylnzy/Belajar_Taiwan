@@ -7,7 +7,7 @@ const STORAGE_KEY = "tocfl_user_profile";
 
 export const DEFAULT_PROFILE: UserProfile = {
   name: "Pelajar",
-  avatarSeed: "🇹🇼",
+  avatarSeed: "臺",
   autoPlayAudio: true,
   activeLevel: "L0",
 };
