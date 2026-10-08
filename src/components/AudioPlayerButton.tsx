@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 
 interface AudioPlayerButtonProps {
@@ -20,13 +20,37 @@ export function AudioPlayerButton({
   const [hasError, setHasError] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  // Stop previous audio and reset when audioFile changes or component unmounts
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      audioRef.current = null;
+    }
+    setIsPlaying(false);
+    setHasError(false);
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+        audioRef.current = null;
+      }
+    };
+  }, [audioFile]);
+
   const playAudio = (e?: React.MouseEvent) => {
     if (e) {
       e.stopPropagation();
     }
     if (!audioFile || hasError) return;
 
-    if (!audioRef.current) {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+
+    try {
       const audioUrl = `/audio/${encodeURIComponent(audioFile)}`;
       const audio = new Audio(audioUrl);
       audio.onplay = () => setIsPlaying(true);
@@ -36,13 +60,15 @@ export function AudioPlayerButton({
         setHasError(true);
       };
       audioRef.current = audio;
-    }
 
-    audioRef.current.currentTime = 0;
-    audioRef.current.play().catch((err) => {
-      console.warn("Audio playback interrupted or blocked:", err);
+      audio.play().catch((err) => {
+        console.warn("Audio playback interrupted or blocked:", err);
+        setIsPlaying(false);
+      });
+    } catch {
       setIsPlaying(false);
-    });
+      setHasError(true);
+    }
   };
 
   const sizeClasses = {

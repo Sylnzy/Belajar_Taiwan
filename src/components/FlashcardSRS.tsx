@@ -193,6 +193,7 @@ export function FlashcardSRS({ levelInfo, words }: FlashcardSRSProps) {
 
       {/* 3D Flip Card */}
       <FlipCard
+        key={currentWord.id}
         word={currentWord}
         isFlipped={isFlipped}
         onFlip={() => setIsFlipped(!isFlipped)}
